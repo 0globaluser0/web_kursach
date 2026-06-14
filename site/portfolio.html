@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CryptoTrade - портфель</title>
+    <script>try{document.documentElement.dataset.theme=localStorage.getItem("cryptotrade-theme")==="dark"?"dark":"light";}catch(error){}</script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="assets/js/app.js"></script>
+</head>
+<body data-page="portfolio">
+    <header class="topbar">
+        <a class="brand" href="dashboard.html" aria-label="CryptoTrade"><span class="brand-mark">CT</span><span>CryptoTrade</span></a>
+        <nav class="main-nav">
+            <a class="nav-link" data-nav="dashboard" href="dashboard.html">Обзор</a>
+            <a class="nav-link" data-nav="market" href="market.html">Рынок</a>
+            <a class="nav-link" data-nav="trade" href="trade.html">Торговля</a>
+            <a class="nav-link" data-nav="portfolio" href="portfolio.html">Портфель</a>
+            <a class="nav-link" data-nav="history" href="history.html">История</a>
+            <a class="nav-link" data-nav="admin" data-admin-only href="admin.html">Админ</a>
+        </nav>
+        <div class="account-chip"><span data-account-name></span><button type="button" data-logout>Выйти</button></div>
+    </header>
+
+    <main class="page-shell">
+        <div data-flash></div>
+        <section class="section-heading">
+            <p class="eyebrow">Портфель</p>
+            <h1>Активы и распределение средств</h1>
+            <p class="muted" data-price-sync-status></p>
+        </section>
+        <section class="metrics-grid">
+            <article class="metric-card"><span>Всего</span><strong data-portfolio-total>$0.00</strong><small>С учетом USD</small></article>
+            <article class="metric-card"><span>Криптоактивы</span><strong data-portfolio-crypto>$0.00</strong><small>Рыночная оценка</small></article>
+            <article class="metric-card"><span>Свободные USD</span><strong data-portfolio-cash>$0.00</strong><small>Можно использовать</small></article>
+        </section>
+        <section class="holdings-grid" data-holdings></section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <a class="footer-brand" href="dashboard.html"><span class="brand-mark">CT</span><span>CryptoTrade</span></a>
+                <p>Учебный проект по разработке сайта криптовалютной торговой площадки.</p>
+            </div>
+            <nav class="footer-links" aria-label="Документы">
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <a href="terms.html">Пользовательское соглашение</a>
+                <a href="market.html">Рынок</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

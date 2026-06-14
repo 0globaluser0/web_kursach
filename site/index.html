@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CryptoTrade - вход</title>
+    <script>try{document.documentElement.dataset.theme=localStorage.getItem("cryptotrade-theme")==="dark"?"dark":"light";}catch(error){}</script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="assets/js/app.js"></script>
+</head>
+<body data-page="index">
+    <header class="topbar">
+        <a class="brand" href="index.html" aria-label="CryptoTrade">
+            <span class="brand-mark">CT</span>
+            <span>CryptoTrade</span>
+        </a>
+        <nav class="main-nav">
+            <a class="nav-link active" href="index.html">Вход</a>
+        </nav>
+        <div class="account-chip">
+            <span>Учебная биржа</span>
+        </div>
+    </header>
+
+    <main class="page-shell">
+        <div data-flash></div>
+        <section class="auth-layout">
+            <div class="auth-panel" data-auth-panel="login">
+                <div class="section-heading">
+                    <p class="eyebrow">Учебная торговая среда</p>
+                    <h1>Вход в симулятор криптовалютной биржи</h1>
+                </div>
+                <form class="form-stack" data-login-form>
+                    <label>Email
+                        <input type="email" name="email" placeholder="student@cryptotrade.local" required>
+                    </label>
+                    <label>Пароль
+                        <input type="password" name="password" placeholder="student123" required>
+                    </label>
+                    <button class="button primary full" type="submit">Войти</button>
+                </form>
+                <div class="demo-box">
+                    <strong>Демо-доступ</strong>
+                    <span>Трейдер: student@cryptotrade.local / student123</span>
+                    <span>Администратор: admin@cryptotrade.local / admin123</span>
+                </div>
+                <button class="button compact auth-switch-button" type="button" data-auth-open="register">
+                    Зарегистрироваться
+                </button>
+            </div>
+            <div class="auth-panel is-hidden" data-auth-panel="register">
+                <div class="section-heading">
+                    <p class="eyebrow">Новый аккаунт</p>
+                    <h2>Регистрация трейдера</h2>
+                </div>
+                <form class="form-stack" data-register-form>
+                    <label>Имя
+                        <input type="text" name="name" placeholder="Ваше имя" minlength="2" required>
+                    </label>
+                    <label>Email
+                        <input type="email" name="email" placeholder="name@example.com" required>
+                    </label>
+                    <label>Пароль
+                        <input type="password" name="password" placeholder="Минимум 6 символов" minlength="6" required>
+                    </label>
+                    <button class="button secondary full" type="submit">Создать аккаунт</button>
+                </form>
+                <p class="muted">Каждый новый пользователь получает демо-баланс $10 000.00.</p>
+                <p class="muted legal-note">Создавая аккаунт, пользователь принимает <a href="terms.html">соглашение</a> и <a href="privacy.html">политику конфиденциальности</a>.</p>
+                <button class="button compact auth-switch-button" type="button" data-auth-open="login">
+                    Уже есть аккаунт
+                </button>
+            </div>
+        </section>
+        <p class="muted market-sync-line" data-price-sync-status></p>
+        <section class="market-strip" data-auth-market></section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <a class="footer-brand" href="index.html"><span class="brand-mark">CT</span><span>CryptoTrade</span></a>
+                <p>Учебный проект по разработке сайта криптовалютной торговой площадки.</p>
+            </div>
+            <nav class="footer-links" aria-label="Документы">
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <a href="terms.html">Пользовательское соглашение</a>
+                <a href="market.html">Рынок</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

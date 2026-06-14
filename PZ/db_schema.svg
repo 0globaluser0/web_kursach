@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1390" height="650" viewBox="0 0 1390 650">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#111827"/>
+</marker>
+</defs>
+<rect width="1390" height="650" fill="#ffffff"/>
+<style>text{font-family:Times New Roman,serif;font-size:16px;fill:#111827}.title{font-size:18px;font-weight:bold}.field{font-size:15px}.table{fill:#f8fafc;stroke:#111827;stroke-width:2}.head{fill:#dbeafe;stroke:#111827;stroke-width:2}.link{stroke:#111827;stroke-width:2;fill:none;marker-end:url(#arrow)}.label{font-weight:bold;font-size:14px;fill:#1d4ed8}</style>
+<text class="title" x="695" y="24" text-anchor="middle">Схема базы данных CryptoTrade</text>
+<path class="link" d="M 310.0 98.0 L 335.0 98.0 L 335.0 158.0 L 360.0 158.0"/>
+<text class="label" x="335.0" y="92.0" text-anchor="middle">1:N</text>
+<path class="link" d="M 495.0 276.0 L 495.0 360.0"/>
+<text class="label" x="495.0" y="311.0" text-anchor="middle">1:N</text>
+<path class="link" d="M 720.0 170.0 L 675.0 170.0 L 675.0 454.0 L 630.0 454.0"/>
+<text class="label" x="675.0" y="164.0" text-anchor="middle">1:N</text>
+<path class="link" d="M 630.0 158.0 L 675.0 158.0 L 675.0 502.0 L 720.0 502.0"/>
+<text class="label" x="675.0" y="152.0" text-anchor="middle">1:N</text>
+<path class="link" d="M 855.0 300.0 L 855.0 360.0"/>
+<text class="label" x="855.0" y="323.0" text-anchor="middle">1:N</text>
+<path class="link" d="M 990.0 170.0 L 1035.0 170.0 L 1035.0 442.0 L 1080.0 442.0"/>
+<text class="label" x="1035.0" y="164.0" text-anchor="middle">1:N</text>
+<rect class="table" x="40" y="40" width="270" height="116" rx="4"/>
+<rect class="head" x="40" y="40" width="270" height="34" rx="4"/>
+<text class="title" x="175" y="62" text-anchor="middle">roles</text>
+<text class="field" x="54" y="98">PK id</text>
+<text class="field" x="54" y="122">code</text>
+<text class="field" x="54" y="146">title</text>
+<rect class="table" x="360" y="40" width="270" height="236" rx="4"/>
+<rect class="head" x="360" y="40" width="270" height="34" rx="4"/>
+<text class="title" x="495" y="62" text-anchor="middle">users</text>
+<text class="field" x="374" y="98">PK id</text>
+<text class="field" x="374" y="122">FK role_id</text>
+<text class="field" x="374" y="146">name</text>
+<text class="field" x="374" y="170">email</text>
+<text class="field" x="374" y="194">password</text>
+<text class="field" x="374" y="218">balance_usd</text>
+<text class="field" x="374" y="242">created_at</text>
+<text class="field" x="374" y="266">is_simulated</text>
+<rect class="table" x="720" y="40" width="270" height="260" rx="4"/>
+<rect class="head" x="720" y="40" width="270" height="34" rx="4"/>
+<text class="title" x="855" y="62" text-anchor="middle">currencies</text>
+<text class="field" x="734" y="98">PK id</text>
+<text class="field" x="734" y="122">symbol</text>
+<text class="field" x="734" y="146">name</text>
+<text class="field" x="734" y="170">price</text>
+<text class="field" x="734" y="194">risk</text>
+<text class="field" x="734" y="218">price_mode</text>
+<text class="field" x="734" y="242">market_symbol</text>
+<text class="field" x="734" y="266">source</text>
+<text class="field" x="734" y="290">last_sync_at</text>
+<rect class="table" x="360" y="360" width="270" height="188" rx="4"/>
+<rect class="head" x="360" y="360" width="270" height="34" rx="4"/>
+<text class="title" x="495" y="382" text-anchor="middle">wallets</text>
+<text class="field" x="374" y="418">PK id</text>
+<text class="field" x="374" y="442">FK user_id</text>
+<text class="field" x="374" y="466">FK currency_id</text>
+<text class="field" x="374" y="490">amount</text>
+<text class="field" x="374" y="514">updated_at</text>
+<text class="field" x="374" y="538">is_simulated</text>
+<rect class="table" x="720" y="360" width="270" height="284" rx="4"/>
+<rect class="head" x="720" y="360" width="270" height="34" rx="4"/>
+<text class="title" x="855" y="382" text-anchor="middle">transactions</text>
+<text class="field" x="734" y="418">PK id</text>
+<text class="field" x="734" y="442">FK user_id</text>
+<text class="field" x="734" y="466">FK currency_id</text>
+<text class="field" x="734" y="490">side</text>
+<text class="field" x="734" y="514">quantity</text>
+<text class="field" x="734" y="538">price</text>
+<text class="field" x="734" y="562">total</text>
+<text class="field" x="734" y="586">status</text>
+<text class="field" x="734" y="610">created_at</text>
+<text class="field" x="734" y="634">is_simulated</text>
+<rect class="table" x="1080" y="360" width="270" height="164" rx="4"/>
+<rect class="head" x="1080" y="360" width="270" height="34" rx="4"/>
+<text class="title" x="1215" y="382" text-anchor="middle">price_history</text>
+<text class="field" x="1094" y="418">PK id</text>
+<text class="field" x="1094" y="442">FK currency_id</text>
+<text class="field" x="1094" y="466">price</text>
+<text class="field" x="1094" y="490">recorded_at</text>
+<text class="field" x="1094" y="514">position</text>
+<rect class="table" x="40" y="360" width="270" height="212" rx="4"/>
+<rect class="head" x="40" y="360" width="270" height="34" rx="4"/>
+<text class="title" x="175" y="382" text-anchor="middle">system_settings</text>
+<text class="field" x="54" y="418">PK id = main</text>
+<text class="field" x="54" y="442">simulation_enabled</text>
+<text class="field" x="54" y="466">simulation_level</text>
+<text class="field" x="54" y="490">simulation_users_target</text>
+<text class="field" x="54" y="514">simulation_trades_per_minute</text>
+<text class="field" x="54" y="538">last_simulation_at</text>
+<text class="field" x="54" y="562">simulation_carry</text>
+</svg>

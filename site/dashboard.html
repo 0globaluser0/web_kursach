@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CryptoTrade - обзор</title>
+    <script>try{document.documentElement.dataset.theme=localStorage.getItem("cryptotrade-theme")==="dark"?"dark":"light";}catch(error){}</script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="assets/js/app.js"></script>
+</head>
+<body data-page="dashboard">
+    <header class="topbar">
+        <a class="brand" href="dashboard.html" aria-label="CryptoTrade"><span class="brand-mark">CT</span><span>CryptoTrade</span></a>
+        <nav class="main-nav">
+            <a class="nav-link" data-nav="dashboard" href="dashboard.html">Обзор</a>
+            <a class="nav-link" data-nav="market" href="market.html">Рынок</a>
+            <a class="nav-link" data-nav="trade" href="trade.html">Торговля</a>
+            <a class="nav-link" data-nav="portfolio" href="portfolio.html">Портфель</a>
+            <a class="nav-link" data-nav="history" href="history.html">История</a>
+            <a class="nav-link" data-nav="admin" data-admin-only href="admin.html">Админ</a>
+        </nav>
+        <div class="account-chip"><span data-account-name></span><button type="button" data-logout>Выйти</button></div>
+    </header>
+
+    <main class="page-shell">
+        <div data-flash></div>
+        <section class="dashboard-hero">
+            <div>
+                <p class="eyebrow">Демо-счет</p>
+                <h1>Портфель <span data-dashboard-name></span></h1>
+                <p class="muted">Учебный демо-счет с сохранением портфеля, сделок и истории операций.</p>
+                <p class="muted" data-price-sync-status></p>
+            </div>
+            <a class="button primary" href="trade.html">Открыть сделку</a>
+        </section>
+
+        <section class="metrics-grid">
+            <article class="metric-card"><span>Общая стоимость</span><strong data-total-value>$0.00</strong><small>Кэш + криптоактивы</small></article>
+            <article class="metric-card"><span>Доступно USD</span><strong data-cash-value>$0.00</strong><small>Демо-баланс для сделок</small></article>
+            <article class="metric-card"><span>Активы</span><strong data-assets-count>0</strong><small>Монет в портфеле</small></article>
+        </section>
+
+        <section class="content-grid">
+            <div class="panel wide">
+                <div class="panel-title"><h2>Динамика BTC</h2><a href="market.html">Весь рынок</a></div>
+                <canvas class="line-chart large" data-btc-chart></canvas>
+            </div>
+            <div class="panel">
+                <div class="panel-title"><h2>Последние сделки</h2><a href="history.html">История</a></div>
+                <div data-recent-transactions></div>
+            </div>
+        </section>
+
+        <section class="market-strip" data-dashboard-market></section>
+
+        <section class="panel">
+            <div class="panel-title"><h2>Лента рынка</h2><a href="market.html">Рынок</a></div>
+            <div data-market-activity></div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <a class="footer-brand" href="dashboard.html"><span class="brand-mark">CT</span><span>CryptoTrade</span></a>
+                <p>Учебный проект по разработке сайта криптовалютной торговой площадки.</p>
+            </div>
+            <nav class="footer-links" aria-label="Документы">
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <a href="terms.html">Пользовательское соглашение</a>
+                <a href="market.html">Рынок</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

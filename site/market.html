@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CryptoTrade - рынок</title>
+    <script>try{document.documentElement.dataset.theme=localStorage.getItem("cryptotrade-theme")==="dark"?"dark":"light";}catch(error){}</script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="assets/js/app.js"></script>
+</head>
+<body data-page="market">
+    <header class="topbar">
+        <a class="brand" href="dashboard.html" aria-label="CryptoTrade"><span class="brand-mark">CT</span><span>CryptoTrade</span></a>
+        <nav class="main-nav">
+            <a class="nav-link" data-nav="dashboard" href="dashboard.html">Обзор</a>
+            <a class="nav-link" data-nav="market" href="market.html">Рынок</a>
+            <a class="nav-link" data-nav="trade" href="trade.html">Торговля</a>
+            <a class="nav-link" data-nav="portfolio" href="portfolio.html">Портфель</a>
+            <a class="nav-link" data-nav="history" href="history.html">История</a>
+            <a class="nav-link" data-nav="admin" data-admin-only href="admin.html">Админ</a>
+        </nav>
+        <div class="account-chip"><span data-account-name></span><button type="button" data-logout>Выйти</button></div>
+    </header>
+
+    <main class="page-shell">
+        <div data-flash></div>
+        <section class="section-heading">
+            <p class="eyebrow">Рынок</p>
+            <h1>Демо-курсы криптовалют</h1>
+            <p class="muted" data-price-sync-status></p>
+        </section>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Монета</th><th>Цена</th><th>Изм.</th><th>Риск</th><th>Источник</th><th>График</th><th></th></tr>
+                </thead>
+                <tbody data-market-table></tbody>
+            </table>
+        </div>
+        <section class="panel market-activity-panel">
+            <div class="panel-title"><h2>Лента активности</h2><span class="risk">Реальные и симулируемые операции</span></div>
+            <div data-market-activity></div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <a class="footer-brand" href="dashboard.html"><span class="brand-mark">CT</span><span>CryptoTrade</span></a>
+                <p>Учебный проект по разработке сайта криптовалютной торговой площадки.</p>
+            </div>
+            <nav class="footer-links" aria-label="Документы">
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <a href="terms.html">Пользовательское соглашение</a>
+                <a href="admin.html">Админ-панель</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CryptoTrade - админ</title>
+    <script>try{document.documentElement.dataset.theme=localStorage.getItem("cryptotrade-theme")==="dark"?"dark":"light";}catch(error){}</script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="assets/js/app.js"></script>
+</head>
+<body data-page="admin">
+    <header class="topbar">
+        <a class="brand" href="dashboard.html" aria-label="CryptoTrade"><span class="brand-mark">CT</span><span>CryptoTrade</span></a>
+        <nav class="main-nav">
+            <a class="nav-link" data-nav="dashboard" href="dashboard.html">Обзор</a>
+            <a class="nav-link" data-nav="market" href="market.html">Рынок</a>
+            <a class="nav-link" data-nav="trade" href="trade.html">Торговля</a>
+            <a class="nav-link" data-nav="portfolio" href="portfolio.html">Портфель</a>
+            <a class="nav-link" data-nav="history" href="history.html">История</a>
+            <a class="nav-link" data-nav="admin" data-admin-only href="admin.html">Админ</a>
+        </nav>
+        <div class="account-chip"><span data-account-name></span><button type="button" data-logout>Выйти</button></div>
+    </header>
+
+    <main class="page-shell">
+        <div data-flash></div>
+        <section class="section-heading">
+            <p class="eyebrow">Администрирование</p>
+            <h1>Управление учебной биржей</h1>
+            <p class="muted" data-price-sync-status></p>
+        </section>
+        <section class="metrics-grid">
+            <article class="metric-card"><span>Пользователи</span><strong data-admin-users>0</strong><small>Всего аккаунтов</small></article>
+            <article class="metric-card"><span>Сделки</span><strong data-admin-transactions-count>0</strong><small>Завершенные операции</small></article>
+            <article class="metric-card"><span>Оборот</span><strong data-admin-turnover>$0.00</strong><small>Демо-операции</small></article>
+            <article class="metric-card"><span>Симуляция</span><strong data-admin-simulation-state>Выкл.</strong><small data-admin-simulation-summary>Сгенерированных данных нет</small></article>
+        </section>
+        <section class="admin-grid">
+            <div class="panel">
+                <div class="panel-title"><h2>Курс и источник</h2></div>
+                <form class="form-stack" data-admin-price-form>
+                    <label>Актив
+                        <select name="currency_id" data-admin-price-currency></select>
+                    </label>
+                    <label>Режим цены
+                        <select name="price_mode" data-admin-price-mode>
+                            <option value="manual">Ручной курс</option>
+                            <option value="auto">Авто из Binance</option>
+                        </select>
+                    </label>
+                    <label>Биржевая пара для авто
+                        <input type="text" name="market_symbol" maxlength="20" placeholder="BTCUSDT" data-admin-market-symbol>
+                    </label>
+                    <label>Новая цена, USD
+                        <input type="number" name="price" min="0.0001" step="0.0001" required>
+                    </label>
+                    <button class="button primary" type="submit">Сохранить настройки</button>
+                    <button class="button compact" type="button" data-admin-sync-prices>Обновить авто-курсы</button>
+                    <small class="form-note">Автообновление меняет только активы в режиме Binance. Ручные цены администратора остаются без изменений.</small>
+                </form>
+            </div>
+            <div class="panel">
+                <div class="panel-title"><h2>Добавить монету</h2></div>
+                <form class="form-stack" data-admin-currency-form>
+                    <label>Символ
+                        <input type="text" name="symbol" maxlength="8" placeholder="XMR" required>
+                    </label>
+                    <label>Название
+                        <input type="text" name="name" placeholder="Monero" required>
+                    </label>
+                    <label>Начальная цена, USD
+                        <input type="number" name="price" min="0.0001" step="0.0001" required>
+                    </label>
+                    <label>Режим цены
+                        <select name="price_mode">
+                            <option value="manual">Ручной курс</option>
+                            <option value="auto">Авто из Binance</option>
+                        </select>
+                    </label>
+                    <label>Биржевая пара для авто
+                        <input type="text" name="market_symbol" maxlength="20" placeholder="XMRUSDT">
+                    </label>
+                    <label>Уровень риска
+                        <select name="risk">
+                            <option>Низкий</option>
+                            <option>Средний</option>
+                            <option>Высокий</option>
+                        </select>
+                    </label>
+                    <label>Описание
+                        <textarea name="description" rows="3" placeholder="Краткое описание актива" required></textarea>
+                    </label>
+                    <button class="button secondary" type="submit">Добавить актив</button>
+                </form>
+            </div>
+        </section>
+        <section class="panel simulation-panel">
+            <div class="panel-title"><h2>Симуляция активности</h2><span class="risk" data-simulation-badge>Выкл.</span></div>
+            <form class="simulation-controls" data-simulation-form>
+                <label class="checkbox-line">
+                    <input type="checkbox" name="enabled" data-simulation-enabled>
+                    Включить симуляцию пользователей и сделок
+                </label>
+                <label>Симулируемых пользователей
+                    <input type="number" name="users_count" min="0" max="200" step="1" value="4" data-simulation-users>
+                </label>
+                <label>Сделок в минуту
+                    <input type="number" name="trades_per_minute" min="0" max="600" step="1" value="6" data-simulation-trades>
+                </label>
+                <button class="button primary" type="submit">Сохранить режим</button>
+                <button class="button compact" type="button" data-simulation-generate>Добавить 1 сделку</button>
+            </form>
+            <p class="muted">Сделки создаются равномерно по времени. При выключении удаляются только записи с меткой симуляции: сгенерированные пользователи, операции и кошельки. Реальные регистрации и реальные сделки остаются.</p>
+        </section>
+        <div class="panel-title"><h2>Операции пользователей</h2></div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Дата</th><th>Пользователь</th><th>Тип</th><th>Актив</th><th>Количество</th><th>Цена</th><th>Сумма</th></tr>
+                </thead>
+                <tbody data-admin-transactions></tbody>
+            </table>
+        </div>
+        <div class="panel-title"><h2>Активы рынка</h2></div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Символ</th><th>Название</th><th>Цена</th><th>Риск</th><th>Режим</th><th>Источник</th><th>Статус</th></tr>
+                </thead>
+                <tbody data-admin-currencies></tbody>
+            </table>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <a class="footer-brand" href="dashboard.html"><span class="brand-mark">CT</span><span>CryptoTrade</span></a>
+                <p>Учебный проект по разработке сайта криптовалютной торговой площадки.</p>
+            </div>
+            <nav class="footer-links" aria-label="Документы">
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <a href="terms.html">Пользовательское соглашение</a>
+                <a href="market.html">Рынок</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
